@@ -22,9 +22,9 @@ quirk-s makes further extensions on top of Quirk-E
 
 Clone the repository.
 
-`git clone https://github.com/DEQSE-Project/Quirk-E` 
+`git clone https://github.com/fritz-schinkel/quirk-s` 
 
-`cd Quirk-E`
+`cd quirk-s`
 
 `npm install`
 
