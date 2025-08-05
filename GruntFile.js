@@ -202,7 +202,7 @@ module.exports = function(grunt) {
         'bootstrap-get-packages:src/main.js:out/tmp/traceur/bootstrap_post_src/run_main.js',
         'concat:concat-traceur-src',
         'uglify:uglify-concatenated-src',
-        'inject-js-into-html:html/quirk.template.html:out/tmp/minified-src.js:out/index.html',
+        'inject-js-into-html:html/quirk.template.html:out/tmp/minified-src.js:out/quirk.html',
         'clean:clean-tmp'
     ]);
     grunt.registerTask('build-debug', [
