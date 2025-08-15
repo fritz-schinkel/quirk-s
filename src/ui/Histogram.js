@@ -59,7 +59,7 @@ class Histogram {
         painter.ctx.save();
         painter.ctx.translate(x, y);
         painter.ctx.rotate(-Math.PI/2);
-        painter.printLine("Probability (%)", new Rect(-r.h / 2, -r.w / 2, r.h, r.w), 0.5, 'black', 12);
+        painter.printLine("Probability (%)", new Rect(-r.h / 2, -r.w / 2, r.h, r.w), 0.5, 'black', 16);
         painter.ctx.restore();
     }
     
@@ -69,8 +69,8 @@ class Histogram {
     drawXAxisTitle(painter, area, numWires, stats) {
         let margin = (numWires > 5) ? 80 : 40;
         let titleY = area.bottom() + margin; 
-        let titleArea = new Rect(area.x, titleY, area.w, 12);
-        painter.printLine("Computational basis states", titleArea, 0.5, 'black', 12);
+        let titleArea = new Rect(area.x, titleY, area.w, 16);
+        painter.printLine("Computational basis states", titleArea, 0.5, 'black', 16);
     }
     
     
@@ -80,7 +80,7 @@ class Histogram {
      */
     drawAxeNumbers(painter, area) {
         let r = area.withX(this.left + Config.TOOLBOX_MARGIN_X / 2).withW(Config.TOOLBOX_MARGIN_X / 2);
-        let font_size = 8;
+        let font_size = 14;
         
         for(let probability of [0, 20, 40, 60, 80, 100]) {
             let y = r.bottom() - r.h * (probability / 100) - 1;

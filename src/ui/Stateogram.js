@@ -59,7 +59,7 @@ class Stateogram {
         painter.ctx.save();
         painter.ctx.translate(x, y);
         painter.ctx.rotate(-Math.PI/2);
-        painter.printLine("Probability (%)", new Rect(-r.h / 2, -r.w / 2, r.h, r.w), 0.5, 'black', 12);
+        painter.printLine("Probability (%)", new Rect(-r.h / 2, -r.w / 2, r.h, r.w), 0.5, 'black', 16);
         painter.ctx.restore();
     }
     
@@ -67,10 +67,10 @@ class Stateogram {
      * @param {!Painter} painter   
      */
     drawXAxisTitle(painter, area, numWires, stats) {
-        let margin = (numWires > 5) ? 80 : 40;
+        let margin = 40;
         let titleY = area.bottom() + margin; 
-        let titleArea = new Rect(area.x, titleY, area.w, 12);
-        painter.printLine("Phase (angle)", titleArea, 0.5, 'black', 12);
+        let titleArea = new Rect(area.x, titleY, area.w, 16);
+        painter.printLine("Phase angle", titleArea, 0.5, 'black', 16);
     }
     
     
@@ -80,20 +80,20 @@ class Stateogram {
      */
     drawAxeNumbers(painter, area) {
         let r = area.withX(Config.TOOLBOX_MARGIN_X / 2).withW(Config.TOOLBOX_MARGIN_X / 2);
-        let font_size = 8;
+        let font_size = 16;
         
         for(let probability of [0, 20, 40, 60, 80, 100]) {
             let y = r.bottom() - r.h * (probability / 100) - 1;
             painter.printLine(probability + "%", new Rect(r.x, y - font_size / 2, Config.TOOLBOX_MARGIN_X / 2, font_size));
         };
 
-        let width = area.w / 10;
+        let width = area.w / 30;
         let angle = [-Math.PI, -Math.PI / 2, 0, Math.PI / 2, Math.PI];
-        // let label = ['-\u03C0', '-\u03C0/2', '0', '\u03C0/2', '\u03C0'];
-        let label = ['-1 (-\u03C0)', '-i (-\u03C0/2)', '1 (0)', 'i (\u03C0/2)', '-1 (\u03C0)'];
+        let label = ['-\u03C0', '-\u03C0/2', '0', '\u03C0/2', '\u03C0'];
+        // let label = ['-1 (-\u03C0)', '-i (-\u03C0/2)', '1 (0)', 'i (\u03C0/2)', '-1 (\u03C0)'];
         for(let idx = 0; idx < 5; idx++){
-            let x = area.x + (angle[idx] / Math.PI + 1) / 2 * (area.w - width);
-            painter.printLine(label[idx], new Rect(x, area.bottom(), width, 24), 0.5);
+            let x = area.x + (angle[idx] / Math.PI + 1) / 2 * (area.w - width) - width/2;
+            painter.printLine(label[idx], new Rect(x, area.bottom(), width*2, 24), 0.5, 'black', 16);
         }
     }
  
