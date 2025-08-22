@@ -207,22 +207,21 @@ class Stateogram {
         let textBoxRect = new Rect(boxX, boxY, boxWidth, boxHeight);
         painter.fillRect(textBoxRect, 'rgba(223, 223, 223, 0.66)');
         painter.strokeRect(textBoxRect, 'black');
-    
+
+        // Formatted string and output state value as text
+        let zeroStates = stats.finalState
+            .getColumn(0)
+            //.map((amplitude, index) => `${amplitude.toString(new Format(false, 0, 5, ''))}`)
+            .map((amplitude, index) => amplitude==0 ? `|${index.toString(2).padStart(numWires, '0')}>` : '')
+            .filter((value, index, array)=>(value!==''));
+        let formattedState = `${zeroStates.join(', ')}`;
+
         let titleMargin = 10;
         painter.ctx.save();
         painter.ctx.fillStyle = 'black';
         painter.ctx.font = 'bold 12px sans-serif';
-        painter.ctx.fillText('Zero phase', textBoxRect.x + titleMargin, textBoxRect.y + titleMargin + 4);
+        painter.ctx.fillText(`Computational basis states without contribution (${zeroStates.length}/${stats.finalState.getColumn(0).length} = ${(zeroStates.length / stats.finalState.getColumn(0).length * 100).toFixed(2)}%):`, textBoxRect.x + titleMargin, textBoxRect.y + titleMargin + 4);
         painter.ctx.restore();
-    
-        // Formatted string and output state value as text
-        let outputState = stats.finalState
-            .getColumn(0)
-            //.map((amplitude, index) => `${amplitude.toString(new Format(false, 0, 5, ''))}`)
-            .map((amplitude, index) => amplitude==0 ? `|${index.toString(2).padStart(numWires, '0')}>` : '')
-            .filter((value, index, array)=>(value!==''))
-            .join(', ');
-        let formattedState = `${outputState}`;
     
         painter.ctx.save();
         painter.ctx.fillStyle = 'black'; 
