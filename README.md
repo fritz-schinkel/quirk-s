@@ -34,6 +34,10 @@ Clone the repository.
 
 Confirm the output works by opening out/quirk.html with a web browser.
 
+# Execution
+
+For immediate execution you can call currently this url: https://fritzcross.ddnss.de/quirk.htm .
+
 # Contributors
 
 - Fritz Schinkel (fritz.schinkel@t-online.de)) - *Fujitsu Germany*
