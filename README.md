@@ -10,10 +10,10 @@ quirk-s makes further extensions on top of Quirk-E
 
 # Features
 
-- **State-o-gram** for state vizualization display side by side with histogram.
+- **State-o-gram** for state visualization display side by side with histogram.
 - **Output of vanishing vectors and copying** is implemented below the state-o-gram.
 - **UI Settings** for disabling output analysis at the end of the circuits lane.
-- **Deutsch Josza** added to circuit gallery.
+- **Deutsch-Josza** added to circuit gallery.
 
 # Known issues
 
@@ -50,5 +50,5 @@ Fritz Schinkel (fritz.schinkel@t-online.de)
 
 [3] https://github.com/fritz-schinkel/quirk-s
 
-[4] todo: archiv article
+[4] Schinkel, F., “state-o-gram - A Novel 2D Visualization for Quantum States”, 2025-08-27, http://arxiv.org/abs/2508.18390
 
